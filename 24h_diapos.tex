@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[xcolor=table]{beamer}
 \usetheme{ALUF}
 
 \usepackage[utf8]{inputenc}
@@ -21,8 +21,38 @@
 \usepackage{fancyhdr} 
 \usepackage{eurosym}
 \usepackage{multirow}
+\usepackage{parallel}
+\usepackage{booktabs}
 
+\newcommand{\tabitem}{\par\hspace*{\labelsep}\textbullet\hspace*{\labelsep}}
 
+%Permet de faire des listes dans les tableaux
+\makeatletter
+\newcolumntype{e}[1]{%--- Enumerated cells ---
+   >{\minipage[b]{\linewidth}%
+     \NoHyper%                Hyperref adds a vertical space
+     \let\\\tabularnewline
+     \enumerate
+        \addtolength{\rightskip}{0pt plus 50pt}% for raggedright
+        \setlength{\itemsep}{-\parsep}}%
+   p{#1}%
+   <{\@finalstrut\@arstrutbox\endenumerate
+     \endNoHyper
+     \endminipage}}
+
+\newcolumntype{i}[1]{%--- Itemized cells ---
+   >{\minipage[b]{\linewidth}%
+        \let\\\tabularnewline
+        \itemize
+           \addtolength{\rightskip}{0pt plus 50pt}%
+           \setlength{\itemsep}{-\parsep}}%
+   p{#1}%
+   <{\@finalstrut\@arstrutbox\enditemize\endminipage}}
+
+\AtBeginDocument{%
+    \@ifpackageloaded{hyperref}{}%
+        {\let\NoHyper\relax\let\endNoHyper\relax}}
+\makeatother
 
 \title{24 heures de l'INSA - 44\up{ème} édition}
 \subtitle{18 - 20 mai 2017}
@@ -59,20 +89,19 @@
 
 \frametitle{Généralités}
 
-\begin{tabular}{lcc}
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{cccc}
 \hline
-\multicolumn{3}{|c|}{\centering\Large\textbf{44\up{ème} édition - 18, 19 et 20 mai 2017}}\\
+\multicolumn{4}{|c|}{\centering\Large\textbf{44\up{ème} édition - 18, 19 et 20 mai 2017}}\\
 \hline
 \\
- & \multirow{4}{*}{\centering\includegraphics[height=.2\textheight]{Images/Image1}} & \multirow{4}{*}{\centering\includegraphics[height=.2\textheight]{Images/Image2}}\\
-- 24 heures de courses &\\
-- 3 soirs de concerts &\\
+\includegraphics[height=.2\textheight]{Images/Image1} & \includegraphics[height=.2\textheight]{Images/Image2} & \includegraphics[height=.2\textheight]{Images/Image3} & \includegraphics[height=.2\textheight]{Images/Image4}\\
 \\
-- 2 journées d'animations & \multirow{4}{*}{\centering\includegraphics[height=.2\textheight]{Images/Image3}} & \multirow{4}{*}{\centering\includegraphics[height=.2\textheight]{Images/Image4}}\\
-gratuites&\\
-- Environ 30 000 personnes&\\
-sur 3 jours &\\
-	
+\multicolumn{4}{l}{\tabitem 24 heures de courses}\\
+\multicolumn{4}{l}{\tabitem 3 soirs de concerts}\\
+\multicolumn{4}{l}{\tabitem 2 journées d'animations gratuites}\\
+\multicolumn{4}{l}{\tabitem Environ 30 000 personnes sur 3 jours}\\
+
 \end{tabular}
 
 \end{frame}
@@ -121,18 +150,76 @@ sur 3 jours &\\
 \begin{frame}
 
 \frametitle{Nouvelles dispositions}
+\begin{itemize}
+\item\textbf{Nouveau dispositif de fermeture à la circulation}
 
+$\rightarrow$ Aucun forçage du dispositif pendant les périodes concernées (20h-5h)
+
+\item\textbf{Ajout de silo à verre aux entrées}
+
+$\rightarrow$ Moins de verre présent autour de cette zone
+
+\item\textbf{Augmentation et répartition des effectifs d'AS en journée}
+
+$\rightarrow$ Aucun incident notable pendant les deux journées d'animations
+\end{itemize}
 \end{frame}
 
 \begin{frame}
 
 \frametitle{Remarques générales}
+\begin{itemize}
+\item Public majoritairement étudiant en soirée
+\item Très peu de problèmes rencontrés sur l'ensemble du week-end
+\item Plusieurs pickpockets arrêtés par la Police, une 50aine de téléphones récupérés
+\item Quelques points de passage forcés par des véhicules en journée
+\item Quelques collisions cyclistes/spectateurs
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Affluence}
+\rowcolors[\hline]{2}{blue!30}{blue!10}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\rowcolor{blue!50} &\bf2015&\bf2016&\bf2017&\bf\parbox[c]{1.7cm}{\centering{Variation}\\2016/2017}\\
+\hline
+Vendredi soir  & 8700 & 8400 & 7600 & -10\%\\
+\hline
+Samedi soir  & 8000 & 9650 & 8400 & -13\%\\
+\hline
+Dimanche soir & 900 & 1600 & 1000 & -60\%\\
+\hline
+Total soirées & 17 600 & 19 650 & 17 000 & -13\%\\
+\hline
+Samedi journée & 5000 & 4000 & 5000 & +25\%\\
+\hline
+Dimanche journée & 5000 & 5000 & 5000 & =\\
+\hline
+Total journées  & 10 000 & 9000 & 10 000 & +11\%\\
+\hline
+Total festival  & 27 600 & 28 650 & 27 000 & -6\%\\
+\hline
+
+\end{tabular}
 
 \end{frame}
 
 \begin{frame}
 
 \frametitle{Interventions}
+
+\rowcolors[\hline]{2}{blue!30}{blue!10}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\rowcolor{blue!50} &\bf2015&\bf2016&\bf2017&\bf\parbox[c]{1.7cm}{\centering{Variation}\\2016/2017}\\
+\hline
+Croix-Rouge & 101 & 68 & 69 & =\\
+\hline
+STAFF Sécurité & 14 & 18 & 5 & -72\%\\
+\hline
+\end{tabular}
 
 \end{frame}
 
@@ -158,6 +245,10 @@ sur 3 jours &\\
 \begin{frame}
 
 \frametitle{Plans de situation}
+\begin{Parallel}{.5\textwidth}{.5\textwidth}
+\ParallelLText{\centering\includegraphics[height=.7\textheight, trim=300 20 0 0,clip]{Exports/Plan_24h_43eme-Plan_ERP}}
+\ParallelRText{\centering\includegraphics[height=.7\textheight, trim=0 0 0 0,clip]{Exports/ERP_vue_aerienne}}
+\end{Parallel}
 
 \end{frame}
 
@@ -165,71 +256,193 @@ sur 3 jours &\\
 
 \frametitle{Zone ERP}
 
+\begin{tabular}{i{.5\textwidth} c}
+\item Validation de la zone à 30 900 personnes le par la sous-commission ERP-IGH le 12 avril 2017
+\vspace{0.5cm}
+\item Exploitation à 10 000 personnes
+\vspace{1cm}
+& \includegraphics[height=.8\textheight, trim=0 0 0 0,clip]{Exports/Plan_24h_43eme-Plan_de_situation}\\
+\end{tabular}
+
 \end{frame}
 
 \begin{frame}
 
 \frametitle{Dégagements}
+\begin{tabular}{i{.3\textwidth} c}
+\item \textbf{13 sorties} pour un minimum de 13 imposées
+\vspace{0.5cm}
+\item \textbf{113 UP} pour un minimum de 103 imposées
+\vspace{2cm}
+& \includegraphics[width=.65\textwidth, trim=100 50 150 0,clip]{Exports/Plan_24h_43eme-IS}\\
+\end{tabular}
 
 \end{frame}
 
 \begin{frame}
 
 \frametitle{Voies pompiers}
+\begin{tabular}{i{.35\textwidth} c}
+\item \textbf{6 voies pompiers} autour de la zone ERP
+\vspace{0.45cm}
+\item \textbf{Agents de sûreté} préposés à l'ouverture en liaison avec le PC Sécurité
+\vspace{0.45cm}
+\item Procédures d'ouverture des accès rapide et fiables
+& \includegraphics[width=.6\textwidth, trim=130 0 180 0,clip]{Exports/Plan_24h_43eme-Acces_Pompiers}\\
+\end{tabular}
 
 \end{frame}
 
 \begin{frame}
 
 \frametitle{Protection contre l'incendie}
+\begin{tabular}{i{.4\textwidth} c}
+\item \textbf{Agents de sécurité} incendie : 1 SSIAP 3, 2 SSIAP 2, 4 SSIAP 1
+\vspace{0.3cm}
+\item \textbf{28 exctinteurs} à disposition
+\vspace{0.3cm}
+\item \textbf{Formation} de 20 bénévoles à leur utilisation
+\vspace{0.3cm}
+\item Diffusion d'un message sonore et visuel en cas d'évacuation de la zone, \textbf{arrêt des activités}
+& \includegraphics[width=.55\textwidth, trim=150 0 190 0,clip]{Exports/Plan_24h_43eme-Extincteurs}\\
+\end{tabular}
 
 \end{frame}
 
 \begin{frame}
 
 \frametitle{Dispositions spécifiques à l'espace restauration}
+\begin{tabular}{i{.50\textwidth} c}
+\item \textbf{5-6} concessions salées
+\item \textbf{2 concessions sucrées}
+\item Ouverture en \textbf{soirée de 20h à 3h45} et en \textbf{journée de 10h à 18h}
+\item Foodtruck et tentes \textbf{ignifugées}
+\item Présence d'agents de sûreté pour réguler le flux de personnes
+\item Extincteurs A3F, H20 et CO2 à disposition sur place
+& \includegraphics[width=.4\textwidth, trim=0 0 0 0,clip]{Exports/Plan_24h_43eme-Espace_Resto_zoom}\\
+\end{tabular}
 
 \end{frame}
 
 \begin{frame}
 
 \frametitle{Troisième scène - Implantation}
+\begin{tabular}{i{.35\textwidth} c}
+\item \textbf{Principe :} Petite scène, public de 500 personnes environ
+\vspace{0.45cm}
+\item En soirée : \textbf{20h-3h20}
+\vspace{0.45cm}
+\item En journée (samedi et dimanche) : \textbf{14h-17h}
+\vspace{.5cm}
+& \includegraphics[width=.6\textwidth, trim=300 100 100 0,clip]{Exports/Plan_24h_43eme-3e_Scene}\\
+\end{tabular}
 
 \end{frame}
 
 \begin{frame}
 
 \frametitle{Troisième scène - Dispositions de sécurité}
+\begin{tabular}{i{.35\textwidth} c}
+\item \textbf{2 sorties} de 4m
+\vspace{0.45cm}
+\item Mise en place de \textbf{moyens d'extinction} appropriés (CO2 + eau)
+\vspace{0.45cm}
+\item Présence de \textbf{2 agents de sûreté} pendant l'animation
+& \includegraphics[width=.6\textwidth, trim=0 0 0 0,clip]{Exports/Plan_24h_43eme-3e_Scene_Secu_Incendie}\\
+\end{tabular}
 
 \end{frame}
 
 \begin{frame}
 
-\frametitle{Secouristes - Croix Rouge Française}
+\frametitle{Emplacements PCs \& Croix-Rouge Française}
+\begin{tabular}{i{.4\textwidth} c}
+\item \textbf{Liaison permanente} avec l'équipe sécurité
+\item \textbf{Secouristes} présents pour les soirées de concerts
+\item \textbf{Equipes mobiles} patrouillant sur la zone concerts
+\item \textbf{Poste de secours} aménagé dans le Gymnase C
+\item \textbf {Redirection} des appels du \textbf{CTA}
+\item Liaison avec le \textbf{SAMU (15)}
+& \includegraphics[width=.55\textwidth, trim=350 0 50 0,clip]{Exports/Plan_24h_43eme-PC_Secu}\\
+\end{tabular}
 
 \end{frame}
 
 \begin{frame}
 
 \frametitle{Installations électriques}
+\begin{itemize}
+\item {Eclairage des sorties :}
+\begin{itemize}
+\item \textbf{Les sorties sont éclairées en permanence}
+\item En cas de coupure de courant ou en cas d'évacuation, des \textbf{blocs phares} branchés sur batterie \textbf{éclairents les sorties de secours}
+\end{itemize}
+\item {Installations électriques :}
+\begin{itemize}
+\item PRésence d'un \textbf{électricien professionnel}
+\item Vérifiées par un \textbf{organisme de contrôle} (OCdS)
+\item \textbf{Aucune installation n'est à portée du public}
+\end{itemize}
+\end{itemize}
 
 \end{frame}
 
 \begin{frame}
 
 \frametitle{Zone de caisses}
+\begin{tabular}{e{.4\textwidth} c}
+\item \textbf{Contrôle visuel} des billets et des sacs par des agents de sûreté
+\vspace{.5cm}
+\item \textbf{Palpation} par des agents de sûreté
+\vspace{.5cm}
+\item \textbf{Contrôle} des billets
+\vspace{.5cm}
+\item \textbf{Accès Zone ERP}
+& \includegraphics[width=.55\textwidth, trim=0 0 0 0,clip]{Exports/Plan_24h_43eme-Entree_zoom}\\
+\end{tabular}
 
 \end{frame}
 
 \begin{frame}
 
 \frametitle{Grande scène}
+\begin{itemize}
+\item Etude et montage de la scène par la société Scénétec
+\item Vérification par un \textbf{organisme de contrôle} (SOCOTEC)
+\end{itemize}
+\includegraphics[width=\textwidth]{Images/scene}
 
 \end{frame}
 
 \begin{frame}
 
-\frametitle{Risques météorologiques}
+\frametitle{Risques météorologiques : Pluie}
+\textbf{Ne crée pas de risques supplémentaires car :}
+\begin{itemize}
+\item Installations électriques dans des coffrets \textbf{étanches}
+\item Matériel sensible sous \textbf{tentes}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Risques météorologiques : Vent}
+\begin{itemize}
+\item \textbf{Surveillance} : anémomètre, veille météo
+\item Vent \textbf{faible} :
+\begin{itemize}
+\item Tout est \textbf{accroché} (signalétique, banderoles…)
+\item Bars \textbf{lestés} (500kg par bar) 
+\item Clôtures fixées (jambe de force ou poteau)
+\item Bâches micro-perforées
+\end{itemize}
+\item Vent fort :
+\begin{itemize}
+\item Scène validée jusqu’à 72 km/h en vent établi
+\item Descente du toit au-delà 
+$\rightarrow$ Annulation des concerts et évacuation de la zone
+\end{itemize}
+\end{itemize}
 
 \end{frame}
 
@@ -248,18 +461,32 @@ sur 3 jours &\\
 \begin{frame}
 
 \frametitle{Plan d'action en cas d'urgence}
+\includegraphics[width=\textwidth]{Images/procedures}
 
 \end{frame}
 
 \begin{frame}
 
 \frametitle{Plan d'accès des secours}
+\begin{tabular}{i{.35\textwidth} c}
+\item \textbf{Adresse unique :} 20 avenue Albert Einstein
+\item \textbf{Point de ralliement :} poste de garde de l'INSA
+\item \textbf{PMA possibles :} Gymnases, hall Marie Curie, bâtiment le Galilée
+& \includegraphics[width=.6\textwidth, trim=0 0 150 0,clip]{Exports/Plan_24h_43eme-PCO_PMA}\\
+\end{tabular}
 
 \end{frame}
 
 \begin{frame}
 
 \frametitle{Evacuation des PMR}
+\begin{itemize}
+\item Présence d’un agent \textbf{SSIAP 1} à proximité de la rampe PMR et présence d’une dizaine d’organisateurs à la buvette à proximité.
+\vspace{.5cm}
+\item Message d’évacuation \textbf{sonore et visuel} pour les malentendants et malvoyants
+\vspace{.5cm}
+\item Agents de sûreté aux issues de secours
+\end{itemize}
 
 \end{frame}
 
@@ -278,24 +505,68 @@ sur 3 jours &\\
 \begin{frame}
 
 \frametitle{L'équipe sécurité des 24 heures de l'INSA}
+\begin{itemize}
+\item Mise en place d'un \textbf{PC sécurité}
+\vspace{.3cm}
+\item \textbf{Permanence 24h/24}
+\vspace{.3cm}
+\item Tenue de la \textbf{main courante}
+\vspace{.3cm}
+\item \textbf{Coordination} des différents acteurs :
+\begin{itemize}
+\item Présence des responsables de \textbf{STAFF Sécurité} et \textbf{Croix-Rouge} 
+\item \textbf{Liaison radio} avec les organisateurs
+\item Liaison avec les \textbf{services de secours}
+\item Liaison avec le service de prevention \& de sécurité de l’INSA
+\item Liaison avec le PC sécurité TCL
+\end{itemize}
+\end{itemize}
 
 \end{frame}
 
 \begin{frame}
 
 \frametitle{Les agents de sûreté (AS)}
+\begin{tabular}{i{.4\textwidth} c}
+\item \textbf{Société STAFF Sécurité}
+\item \textbf{Agents de sécurité} incendie : 1 SSIAP 3, 2 SSIAP 2, 4 SSIAP 1
+\item Jusqu'à \textbf{92 AS} aux heures de pointe
+\item \textbf{Liaison radio permanente} avec l'équipe sécurité
+\item \textbf{6 équipes cynophiles} (1 maître-chien + 1 AS + 1 chien)
+& \includegraphics[width=.55\textwidth, trim=350 0 30 50,clip]{Exports/Plan_24h_43eme-AS_Nuit}\\
+\end{tabular}
+
 
 \end{frame}
 
 \begin{frame}
 
 \frametitle{Les agents de sûreté (AS) - Zone des caisses}
+\begin{tabular}{i{.45\textwidth} c}
+\item \textbf{Equipe mobile} : 1 SSIAP 1 + 1 agent + 1 maître-chien
+\item \textbf{Palpation} 12 agents
+\item \textbf{Files} 6 agents
+\item \textbf{Sortie} 4 agents
+\item \textbf{Caisses} 3 agents
+\item \textbf{Alentours} : 2 maîtres-chiens + 1 AS
+\item \textbf{Total} : 31 agents sur la zone
+\item \textbf{Evacuation de l'argent :} Couloir de circulation en zone sécurisée
+& \includegraphics[width=.5\textwidth, trim=100 0 50 0,clip]{Exports/Plan_24h_43eme-Entree_AS}\\
+\end{tabular}
 
 \end{frame}
 
 \begin{frame}
 
 \frametitle{Dispositions spécifiques liées à la "Travée Verte"}
+\begin{tabular}{i{.4\textwidth} c}
+\item Dispositif en place depuis 4 ans avec d'excellents résultats
+\vspace{.3cm}
+\item Mis en place les \textbf{vendredi et samedi de 20h à 9h}
+\vspace{.3cm}
+\item Présence d'agents pour ouvrir les \textbf{voies pompiers}
+& \includegraphics[width=.55\textwidth, trim=0 80 350 100,clip]{Exports/Plan_24h_43eme-AS_Nuit}\\
+\end{tabular}
 
 \end{frame}
 
@@ -318,6 +589,43 @@ sur 3 jours &\\
 \end{frame}
 
 \begin{frame}
+
+\frametitle{Dispositif d'accessibilité}
+\begin{tabular}{i{.5\textwidth} c}
+\item Dispositif validé en \textbf{SCDA} en 2014
+\vspace{1mm}
+\item Parking réservé aux PMR à proximité des entrées
+\vspace{1mm}
+\item Rampe surélevée avec présence de SSIAP 1
+\vspace{1mm}
+\item Toilette PMR situées au niveau des toilettes du public Nord
+\vspace{1mm}
+\item Caisse et buvette aménagées pour les PMR
+\vspace{1mm}
+\item Signalétique adaptée
+& \includegraphics[width=.45\textwidth, trim=0 0 0 30,clip]{Exports/Plan_24h_43eme-PMR_sud}\\
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Dispositif d'accessibilité}
+\begin{tabular}{i{.5\textwidth} c}
+\item Dispositif validé en \textbf{SCDA} en 2014
+\vspace{1mm}
+\item Parking réservé aux PMR à proximité des entrées
+\vspace{1mm}
+\item Rampe surélevée avec présence de SSIAP 1
+\vspace{1mm}
+\item Toilette PMR situées au niveau des toilettes du public Nord
+\vspace{1mm}
+\item Caisse et buvette aménagées pour les PMR
+\vspace{1mm}
+\item Signalétique adaptée
+& \includegraphics[width=.45\textwidth, trim=0 0 0 30,clip]{Exports/Plan_24h_43eme-PMR_nord}\\
+\end{tabular}
+
 \end{frame}
 
 %========================================
@@ -333,6 +641,119 @@ sur 3 jours &\\
 \end{frame}
 
 \begin{frame}
+
+\frametitle{Dispositions concernant le campus}
+\begin{itemize}
+\item Services médicaux et de sécurité civile à proximité :
+\begin{itemize}
+\item \textbf{Services de police autorisés à intervenir} sur le campus
+\item \textbf{Pompiers} informés
+\item Proximité de la \textbf{clinique du Tonkin} 
+\end{itemize}
+\item Bâtiments et laboratoires : 
+\begin{itemize}
+\item \textbf{Renforcement} du Service de Prévention et de sécurité de l’INSA (4 agents supplémentaires)
+\item \textbf{Renforcement} du Service de Prévention et de sécurité de l’UCBL (2 agents supplémentaires)
+\item Astreinte de la Direction du Patrimoine de l’INSA \textbf{doublée} (technique et électrique)
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Transports en commun}
+\begin{itemize}
+\item Mesures de prévention :
+\begin{itemize}
+\item Blocage des emplacements dangereux
+\item Agents de sûreté en fin de soirée aux abords des stations de tramway
+\end{itemize}
+\item Contact avec le PC sécurité TCL:
+\begin{itemize}
+\item En cas d’évacuation 
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Protection des bâtiments sur le campus}
+\begin{tabular}{i{.35\textwidth} c}
+\item A compléter
+& \includegraphics[width=.6\textwidth, trim=0 0 0 30,clip]{Exports/Plan_24h_43eme-Zone_de_travaux}\\
+\end{tabular}
+
+\end{frame}
+
+
+\begin{frame}
+
+\frametitle{Sécurisation des zones de travaux}
+\includegraphics[width=.9\textwidth, trim=0 0 0 0,clip]{Exports/Plan_24h_43eme-Protection_Bat}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Avant la manifestation}
+\begin{itemize}
+\item Rappel des précautions à prendre en raison de l’affluence exceptionnelle :
+\begin{itemize}
+\item Bien fermer les logements et locaux
+\item Faire attention aux vols à la tire	
+\end{itemize}
+\item Pose d’affiches de sensibilisation sur les supports d’affichage du campus et dans les résidences. 
+\item Communication par voie électronique à l’ensemble des étudiants et personnels (détaillée plus loin)
+\item Désactivation des badges d’accès aux bâtiments (de cours \& laboratoires) et des ascenseurs 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Pendant la manifestation}
+\begin{itemize}
+\item Présence d’organismes de prévention :
+\begin{itemize}
+\item Avenir Santé – Génération Cobayes
+\end{itemize}
+\item Thèmes abordés :
+\begin{itemize}
+\item Alcool, drogues
+\item Sécurité routière (opération SAM)
+\item Sexualité, IST
+\item Comportements à risques
+\end{itemize}
+\item Equipes mobiles pendant les concerts
+\item Diffusion de messages de prévention sur les écrans de la scène
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Emplacement du stand de prévention}
+Intégrer ici le plan d'emplacement du stand prévention
+%\includegraphics[width=.9\textwidth, trim=0 0 0 0,clip]{Exports/
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Dispositions spécifiques au CETIAT}
+\begin{tabular}{i{.35\textwidth} c}
+\item Centre technique situé sur l'avenue des Arts
+\vspace{1mm}
+\item Stockage de divers matériaux \textbf{inflammables}
+\vspace{1mm}
+\item Gardiennage le vendredi, samedi de 20h à 4h et dimanche soir de 20h à 23h30
+\vspace{1mm}
+\item Liaison radio permanente avec le PC sécurité
+& \includegraphics[width=.6\textwidth, trim=0 0 0 30,clip]{Exports/Plan_24h_43eme-CETIAT}\\
+\end{tabular}
+
 \end{frame}
 
 %========================================
@@ -348,6 +769,136 @@ sur 3 jours &\\
 \end{frame}
 
 \begin{frame}
+
+\frametitle{Course cylcliste et à pied}
+\begin{tabular}{i{.5\textwidth} i{.5\textwidth}}
+\item \textbf{3 points} de passage
+\item \textbf{2 organisateurs} avec chasuble par point de passage
+& \item Rondes régulière en \textbf{voiture-balai}
+\item Véhicule de la \textbf{Croix-Rouge} présent avec \textbf{3 secouristes} pendant la durée de la course
+\end{tabular}
+\includegraphics[width=\textwidth, trim=0 300 0 0,clip]{Exports/Plan_24h_43eme-Parcours_courses}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Course cycliste et à pied}
+\begin{itemize}
+\item \textbf{Risques :}
+\begin{itemize}
+\item Chutes (fatigue, vitesse)
+\item Collisions avec les spectateurs
+\end{itemize}
+\item \textbf{Mesures préventives :}
+\begin{itemize}
+\item \textbf{Port du casque} et éclairage de vélo obligatoires 
+\item \textbf{Vérification} des certificats médicaux / Licences Sportives
+\item \textbf{Barrièrage} et signalisation des points sensibles
+\item \textbf{Points de passage surveillés} pour les spectateurs
+\item Équipe de \textbf{secouristes} présente sur le parcours
+\item \textbf{Surveillance} constante par une voiture balai
+\item \textbf{Éclairage} de la course pendant la nuit
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Animations}
+\begin{itemize}
+\item Environ \textbf{60 animations} regroupées en 3 pôles
+\item Horaires : \textbf{10h-18h} les 20 et 21 mai
+\item \textbf{2 responsables animations} en liaison radio avec le PC sécurité
+\end{itemize}
+\begin{tabular}{i{.35\textwidth} c}
+\item \textbf{Patrouilles} d'agents de sûreté
+\item Agents de sûreté \textbf{fixes} aux points sensibles
+\vspace{1.5cm}
+& \includegraphics[width=.6\textwidth, trim=0 0 0 0,clip]{Images/animations}\\
+\end{tabular}
+
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Répartition des AS en journée}
+\includegraphics[width=\textwidth, trim=0 0 0 30,clip]{Exports/Plan_24h_43eme-AS_Jour}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Animations sensibles}
+\begin{itemize}
+\item Feu d’artifice  / Spectacle de feu
+\item Animation Phare
+\item Dispositif de protection spécifique :
+\begin{itemize}
+\item Barrièrage de la zone 
+\item Agents de sûreté dédiés
+\item Extincteurs
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Animations sensibles - Feu d'artifice}
+\begin{itemize}
+\item \textbf{Spectacle de feu}
+\begin{itemize}
+\item Même emplacement que le feu d’artifice 
+\item 10 mètres de séparation avec le public
+\item Spectacle le 21 mai à 22h30
+\end{itemize}
+\item \textbf{Feu d’artifice}
+\begin{itemize}
+\item Type K4
+\item 25,08 kg de matière active 
+\item 95 mètres de séparation avec le public
+\item Tir le \textbf{20 mai à 23h00}
+\item Société ShowTechnic, comme les années précédentes
+\item Public : environ 500 personnes
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Grand 8}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Fatal Balayette}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Soirée du dimanche}
+\begin{tabular}{i{.35\textwidth} c}
+\item Dimanche 20 mai de \textbf{20h à 22h30}
+\vspace{1mm}
+\item Concerts de \textbf{jazz}
+\vspace{1mm}
+\item Communication \textbf{réduite}
+\vspace{1mm}
+\item Mise en place d'une \textbf{zone ERP réduite}
+& \includegraphics[width=.6\textwidth, trim=200 0 0 30,clip]{Exports/Plan_24h_43eme-ERP_Dimanche}\\
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Soirée du dimanche}
+
 \end{frame}
 
 %========================================
@@ -363,8 +914,10 @@ sur 3 jours &\\
 \end{frame}
 
 \begin{frame}
-\end{frame}
 
+\frametitle{}
+
+\end{frame}
 
 
 \end{document}
