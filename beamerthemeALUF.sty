@@ -45,7 +45,7 @@
 
 \addtobeamertemplate{title page}{%
 \usebeamertemplate{title background}%
-\vskip .2\paperheight%
+\vskip .05\paperheight%
 }
 {}
 
@@ -62,13 +62,13 @@
 \setbeamertemplate{title background}{%
 \begin{pgfpicture}
     \pgf@relevantforpicturesizefalse
-    \pgftransformxshift{-\Gm@lmargin}
-    \pgftransformyshift{5.5pt}
+    %\pgftransformxshift{-\Gm@lmargin}
+    %\pgftransformyshift{5.5pt}
     \pgfusepath{fill}
     %\MakeBlueBackgroud
 
     % Logo
-    \pgftext[at=\pgfpoint{.009\paperwidth}{-.60\paperheight},left,base]{\pgfuseimage{main-logo}}
+    \pgftext[at=\pgfpoint{.05\paperwidth}{-.90\paperheight},right,base]{\pgfuseimage{main-logo}}
 
 \end{pgfpicture}%
 }
